@@ -22,16 +22,13 @@ import {
   
     const dispatch = useDispatch();
   
-    // Calculate total number of pages
     const totalPages = Math.ceil(products.length / pageNumber);
   
-    // Get the current items to display based on the current page
     const currentItems = products.slice(
       (currentPage - 1) * pageNumber,
       currentPage * pageNumber
     );
   
-    // Function to handle page change
     const handlePageChange = (pageNumber: number) => {
       setCurrentPage(pageNumber);
     };
@@ -52,11 +49,11 @@ import {
       fetchData();
     }, [pageNumber]);
   
-    // Handle page size change
+    //---------------------- Handle page size change--------------
     const handlePageSizeChange = (event: any) => {
-      const selectedValue = Number(event.target.value); // Ensure it's a number
+      const selectedValue = Number(event.target.value); 
       SetSelectedPage(selectedValue);
-      dispatch(setPageNumber(selectedValue)); // Dispatch the action to update the page size
+      dispatch(setPageNumber(selectedValue)); 
     };
   
     return (
@@ -104,7 +101,7 @@ import {
                   <FormControl fullWidth>
                     <Select
                       value={selectedPage}
-                      onChange={handlePageSizeChange} // Update the state and Redux store
+                      onChange={handlePageSizeChange} //---------------- Update the state and Redux store
                     >
                       <MenuItem value={5}>5</MenuItem>
                       <MenuItem value={10}>10</MenuItem>
