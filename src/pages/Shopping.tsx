@@ -10,6 +10,7 @@ import {
   import { useDispatch, useSelector } from "react-redux";
   import { PageState, setPageNumber } from "../redux/reducer";
   import SingleCard from "../component/SingleCard";
+import Loader from "../component/Loader";
   
   const Shopping = () => {
     const [selectedPage, SetSelectedPage] = useState(5);
@@ -56,6 +57,8 @@ import {
       dispatch(setPageNumber(selectedValue)); 
     };
   
+if(loading) return <Loader></Loader>
+
     return (
       <>
         <div
